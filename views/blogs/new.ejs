@@ -1,0 +1,31 @@
+<% include ../partials/header %>
+
+
+
+<div class="container">
+  <div class="insidecontainer" style="padding-left:30%;">
+    <h1 style="padding:auto;">New Blog Page</h1>
+    <div class="card bg-light mb-3" style="max-width: 30rem;">
+      <div class="card-header">Add New Blog</div>
+      <div class="card-body">
+        <form action="/blogs" method="POST">
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" name="blog[title]" placeholder="Enter Title">
+          </div>
+          <div class="form-group">
+            <label>Image</label>
+            <input type="text" class="form-control" name="blog[image]" placeholder="Enter Title">
+          </div>
+          <div class="form-group">
+            <label>Body</label>
+            <textarea name="blog[body]" class="form-control" rows="8" cols="80"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% include ../partials/footer %>

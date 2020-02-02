@@ -1,0 +1,33 @@
+<% include ../partials/header %>
+
+
+<div class="container">
+  <div class="insidecontainer">
+      <h1 style="padding:auto;">Blog Home</h1>
+          <div class="card mb-12">
+            <div class="row no-gutters">
+              <div class="col-md-12" style="margin:auto;">
+                <img src="<%=blog.image %>" width="100%" class="img-responsive" alt="<%=blog.title %>" style="margin:auto;">
+              </div>
+              <div class="col-md-12">
+                <div class="card-body">
+                  <h5 class="card-title"><%=blog.title %></h5>
+                  <p class="card-text"><%=blog.body %></p>
+                  <hr>
+                  <h5><strong>Comments</strong></h5> <a href="/blogs/<%=blog._id%>/comments/new">Add New Comment</a>
+                  <% blog.comments.forEach(function(comment){ %>
+                    <p><strong><%=comment.author%></strong> - <%=comment.message%></p>
+                    <%  }) %>
+                  <a href="/blogs/<%= blog._id %>/edit"><button type="submit" class="btn btn-primary">Edit Blog</button></a>
+                  <form class="" action="/blogs/<%= blog._id%>?_method=DELETE" method="post">
+                      <button type="submit" class="btn btn-danger">Delete</button>
+                  </form>
+                  <p class="card-text"><small class="text-muted"><%=blog.created.toDateString() %></small></p>
+                </div>
+              </div>
+            </div>
+          </div>
+  </div>
+</div>
+
+<% include ../partials/footer %>
